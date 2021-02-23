@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Test</h2>
+<input type="text" name="input1" id="input1">
+<button onclick ="calcu()">Calculate</button>
+
+<p id="out"></p>
+
+<script>
+
+	function calcu(){
+		var count = 0;
+		var outp = "";
+		var inp = document.getElementById('input1').value;//get the input
+		var newinp = inp.split('').sort().join('');
+		var letter = 'A';
+		while(letter != 'z'){
+			for(var i = 0; i < newinp.length; i++){
+				if(letter == newinp[i]){
+					count ++;
+					outp += outp + "[" + letter + "," + count + "]";
+				}
+			}
+			count = 0;
+			letter = String.fromCharCode(letter.charCodeAt(0) + 1);
+		}		
+		document.getElementById("out").innerHTML = outp;	
+	}
+		
+
+</script>
+</body>
+</html> 
